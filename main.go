@@ -20,6 +20,8 @@ func main() {
 	router.GET("/posts/:id", controllers.ShowPost)
 	router.PUT("/posts/:id", controllers.UpdatePost)
 	router.DELETE("/posts/:id", controllers.DeletePost)
+	router.POST("/signup", controllers.SignUp)
+	router.POST("/login", controllers.LogIn)
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{

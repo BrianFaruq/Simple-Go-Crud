@@ -7,3 +7,9 @@ type Post struct {
 	Title string
 	Body  string
 }
+
+type User struct {
+	gorm.Model
+	Email    string `gorm:"unique"`
+	Password string
+}
