@@ -3,6 +3,7 @@ package main
 import (
 	initializers "github.com/GoProject/go-crud/Initializers"
 	"github.com/GoProject/go-crud/controllers"
+	"github.com/GoProject/go-crud/middleware"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,6 +23,7 @@ func main() {
 	router.DELETE("/posts/:id", controllers.DeletePost)
 	router.POST("/signup", controllers.SignUp)
 	router.POST("/login", controllers.LogIn)
+	router.GET("/validate", middleware.RequireAuth, controllers.Validate)
 
 	router.GET("/", func(c *gin.Context) {
 		c.JSON(200, gin.H{
